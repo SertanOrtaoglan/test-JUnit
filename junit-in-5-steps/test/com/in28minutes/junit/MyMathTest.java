@@ -8,22 +8,40 @@ import org.junit.jupiter.api.Test;
 
 class MyMathTest {
 
+	private MyMath math = new MyMath();
+
+	//İlk yazdığımız 'test()' methodunun basitleştirilmiş hali;
 	@Test
-	void test() {
-		//fail("Not yet implemented");    //Bu 'fail()' methodu "assertion"dır. Bir testin başarısız olmasını istiyorsak 'fail()' methodunu kullanırız.
-		//Absence of failure is success(Başarısızlığın yokluğu başarıdır)
-		//Testimizde yapacağımız şey birkaç test koşulu yazmaktır. Bunlara "assert" denir. (Test Condition or Assert)
-		
-		//Bir adet "assert" yani test koşulu yazıp çalıştırmayı deneyelim;
-		int[] numbers = {1,2,3};
-		MyMath math = new MyMath();
-		int result = math.calculateSum(numbers);
-		System.out.println(result);  //Çıktı olarak console'da "6"yı görürüz.(1+2+3=6)
-		//Şimdi yapmamız gereken şey yukarıdaki 'result' değerini(6) beklenen değerle karşılaştırmaktır.
-		int expectedResult = 6;   //Beklenen değer '6'dır.
-		//Bu noktada karşılaştırma işlemini 'assert method'lar ile yaparız.["assertEquals()" methodu]
-		assertEquals(expectedResult, result);  //Çıktı olarak "green bar"ı görürüz. Yani testin başarılı olduğu anlamına gelir.
-		
+	void calculateSum_ThreeMemberArray() {      //methodumuzun ismini değiştirerek daha anlaşılır yaptık.
+		//"Refactor" ardından "Inline" ile kodumuzu sadeleştirdik.
+		assertEquals(6, math.calculateSum(new int[] {1,2,3}));
 	}
+	
+	
+	/*
+	@Test
+	void test1() {
+		
+		// {} => 0 
+	
+		int[] numbers = {};
+		int result = math.calculateSum(numbers);
+		int expectedResult = 0;   //Beklenen değer '0'dır.
+		assertEquals(expectedResult, result);
+	}
+	*/
+	
+	
+	//test1()'in basitleştirilmiş hali;
+	// {} => 0
+	@Test
+	void calculateSum_ZeroLengthArray() {      //methodumuzun ismini değiştirerek daha anlaşılır yaptık.
+		//"Refactor" ardından "Inline" ile kodumuzu sadeleştirdik.
+		assertEquals(0, math.calculateSum(new int[] {}));
+	}
+	
+
 
 }
+
+
